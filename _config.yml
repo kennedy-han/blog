@@ -1,1 +1,6 @@
+markdown: rdiscount
+permalink: /:year/:i_month/:i_day/:title/
+author: kennedyhan
+pygments: false
 url: /blog
+paginate: 20
