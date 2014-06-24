@@ -6,7 +6,7 @@ paginate: 20
 permalink: /:categories/:year/:month/:day/:title 
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-pygments: true
+highlighter: true
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
@@ -14,11 +14,10 @@ pygments: true
 title : Jekyll Bootstrap
 tagline: Site Tagline
 author : kennedyhan
-  name : han
-  email : hantai8421@gmail.com
-  github : kennedy-han
-  twitter :  kennedy-han
-  feedburner : kennedy-han
+email : hantai8421@gmail.com
+github : kennedy-han
+twitter :  kennedy-han
+feedburner : kennedy-han
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
