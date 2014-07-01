@@ -6,3 +6,6 @@ category:
 tags: []
 ---
 {% include JB/setup %}
+
+###安装jekyll后使用 jekyll serve命令启动 默认访问路径 localhost:4000
+
