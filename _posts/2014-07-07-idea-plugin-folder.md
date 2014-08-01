@@ -2,8 +2,8 @@
 layout: post
 title: "idea plugin folder"
 description: ""
-category: 
-tags: []
+category: idea
+tags: [idea plugin]
 ---
 {% include JB/setup %}
 ###IDEA中插件安装位置###
