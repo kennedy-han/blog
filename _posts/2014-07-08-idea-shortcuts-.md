@@ -32,5 +32,6 @@ alt + UP/DOWN 区块智能选择
 control + alt + R 运行当前范围测试   
 alt + F7 查看引用   
 
-
-
+control + h 查看类继承
+cmd + shift + f 全局查找
+cmd + alt + L 格式化代码
