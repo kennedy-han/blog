@@ -35,3 +35,8 @@ alt + F7 查看引用
 control + h 查看类继承
 cmd + shift + f 全局查找
 cmd + alt + L 格式化代码
+
+###Debug
+F7步入
+F8步过
+
