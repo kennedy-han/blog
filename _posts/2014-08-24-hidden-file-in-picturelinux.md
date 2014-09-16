@@ -3,7 +3,7 @@ layout: post
 title: "hidden file in picture(linux)"
 description: "hidden file in picture"
 category: linux
-tags: [hidden file linux]
+tags: [linux]
 ---
 {% include JB/setup %}
 

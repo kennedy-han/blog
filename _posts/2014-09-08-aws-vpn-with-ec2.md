@@ -3,7 +3,7 @@ layout: post
 title: "AWS VPN with EC2"
 description: "aws vpn"
 category: aws vpn
-tags: [aws vpn]
+tags: [aws]
 ---
 {% include JB/setup %}
 

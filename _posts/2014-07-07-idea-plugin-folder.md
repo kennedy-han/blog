@@ -3,7 +3,7 @@ layout: post
 title: "idea plugin folder"
 description: ""
 category: idea
-tags: [idea plugin]
+tags: [idea]
 ---
 {% include JB/setup %}
 ###IDEA中插件安装位置###

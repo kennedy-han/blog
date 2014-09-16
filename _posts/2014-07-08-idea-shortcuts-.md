@@ -3,7 +3,7 @@ layout: post
 title: "idea shortcuts 常用快捷键"
 description: ""
 category: 
-tags: []
+tags: [idea]
 ---
 {% include JB/setup %}
 
