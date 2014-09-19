@@ -109,4 +109,4 @@ link c:\1`;`
 ------
 DOS系统中.exe文件中的程序的加载过程：
 
-![](/public/image/dos-loading-exe.jpg)
+![](/blog/public/image/dos-loading-exe.jpg)
