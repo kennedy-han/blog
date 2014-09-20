@@ -84,3 +84,6 @@ mov ax,ss:[0]
 在windows unix这些运行于CPU保护模式下的OS中，不理会OS直接操作硬件是不可能的，硬件已被这些OS利用CPU保护模式所提供的功能全面而严格的管理了
 
 `0:200~0:2ff` 这256个字节的空间一般不会被DOS和其他合法程序使用
+
+------
+第五章源码在[github](https://github.com/kennedy-han/myAsmCode/tree/master/chapter5_bx_loop)

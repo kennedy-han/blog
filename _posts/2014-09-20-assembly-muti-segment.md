@@ -46,3 +46,6 @@ code是代码段
 start是标号，end start是标志程序从start标号处开始执行
 
 标号名称也可自定义
+
+------
+第六章源码在[github](https://github.com/kennedy-han/myAsmCode/tree/master/chapter6_include_segment)
