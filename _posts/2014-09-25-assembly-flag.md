@@ -126,6 +126,8 @@ add指令执行后：CF=1，OF=1。对于无符号数运算，OF0H(240)+88H(136)
 ###adc指令
 adc是带进位加法指令，它利用了CF位上记录的进位值
 
+adc执行后，也可能产生进位值（CF变化）
+
 例：
 
 ```
@@ -144,3 +146,168 @@ adc ax,3
 执行后，(ax)=5。adc执行时，相当于计算：(ax)+3+CF=2+3+0=5
 
 adc指令的意义：对任意大的数据进行加法运算
+
+计算：1EF000H+201000H 结果放在ax(高16位)和bx（低16位）中
+
+```
+mov ax,001EH
+mov bv,0F000H
+add bx,1000H
+adc ax,0020H
+```
+###sbb指令
+带借位减法指令，它利用了CF位上记录的错位值
+
+sbb执行后，也对CF进行设置，可以对任意大的数据进行减法运算
+
+计算：003E1000H-00202000H
+
+```
+mov bx,1000
+mov ax,003EH
+sub bx,2000H
+sbb ax,0020H
+```
+
+###cmp指令
+cmp是比较指令，功能相当于减法指令，只是不保存结果，cmp指令执行后，将对标志寄存器产生影响
+
+例：
+
+```
+mov ax,8
+mov bx,3
+cmp ax,bx
+```
+执行后，(ax)=8,zf=0,pf=1,sf=0,cf=0,of=0
+
+cmp执行也包含两种含义：进行无符号数运算和进行有符号数运算
+
+###检测比较结果的条件转移指令
+所有的条件转移指令的转移位移都是[-128,127]
+
+因为cmp指令可以同时进行两种比较，无符号数比较和有符号数比较，所以根据cmp指令执行结果进行转移的指令也分为两种：
+
+* 无符号数的比较结果进行转移的条件转移指令(检测zf、cf的值)
+* 有符号数的比较结果进行转移的条件转移指令(检测sf、of、zf的值)
+
+常用的根据无符号数的比较结果进行转移的条件转移指令：
+
+|指令|含义|检测的相关标志位|
+|---|
+|je|等于则转移|zf=1|
+|jne|不等于则转移|zf=0|
+|jb|低于则转移|cf=1|
+|jnb|不低于则转移|cf=0|
+|ja|高于则转移|cf=0且zf=0|
+|jna|不高于则转移|cf=1或zf=1|
+
+记忆方法：
+
+e:表示equal
+
+ne:表示not equal
+
+b:表示below
+
+nb:表示not below
+
+a:表示above
+
+na:表示not above
+
+cmp与je等联合使用的时候表现出来的功能，有些像高级语言中的IF语句
+
+###DF标志和串传送指令
+flag的第10位是DF，方向标志位。在串处理指令中，控制每次操作后si、di的增减
+
+df=0 每次操作后 si、di递增
+
+df=1 每次操作后 si、di递减
+
+串传送指令：movsb
+
+功能：执行movsb指令相当于：
+
+```
+mov es:[di],byte ptr ds:[si]	;8086并不支持这样的指令，这里只是描述
+
+如果df=0
+
+inc si
+inc di
+
+如果df=1
+
+dec si
+dec di
+```
+也可以传送一个字，用movsw指令
+
+功能如下：
+
+```
+mov es:[di],word ptr ds:[si]	;8086不支持这样的指令，这里只是个描述
+
+如果df=0
+add si,2
+add di,2
+
+如果df=1
+sub si,2
+sub di,2
+```
+
+一般来说，movsb和movsw都配合rep使用，格式如下：
+
+rep movsb
+
+用汇编语法来描述rep movsb的功能就是：
+
+```
+s:movsb
+  loop s
+```
+可见，rep的作用是根据cx的值，重复执行后面的串传送指令
+
+8086CPU提供下面两条指令对DF位进行设置：
+
+1. cld指令：将标志寄存器的df位置0
+2. std指令：将标志寄存器的df位置1
+
+例：编程,用串传送指令进行数据的传送，将data段中的第一个字符串复制到他后面的空间中
+
+```
+assume cs:code
+
+data segment
+	db 'Weldome to masm!'
+	db 16 dup (0)
+data ends
+
+code segment
+	mov ax,data
+	mov ds,ax
+	mov si,0	;ds:si指向data:0
+	mov es,ax
+	mov di,16	;es:di指向data:0010
+	mov cx,16	;cx=16,rep循环16次
+	cld			;设置df=0，正向传送
+	rep movsb
+code ends
+
+end start
+```
+
+###pushf和popf
+pushf是将标志寄存器的值压栈，而popf是从栈中弹出数据，送入标志寄存器中。
+
+###标志寄存器在Debug中的表示
+|标志|值为1的标记|值为0的标记|
+|---|
+|of|OV|NV|
+|sf|NG|PL|
+|zf|ZR|NZ|
+|pf|PE|PO|
+|cf|CY|NC|
+|df|DN|UP|
