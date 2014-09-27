@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "install ruby and jekyll"
-description: ""
-category: 
-tags: []
+description: "install jekyll"
+category: jekyll
+tags: [jekyll]
 ---
 {% include JB/setup %}
 
