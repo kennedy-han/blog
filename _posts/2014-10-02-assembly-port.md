@@ -131,6 +131,8 @@ shr al,1	;将al中的数据右移一位
 
 一个字节可以表示两个BCD码，则CMOS RAM存储时间信息的单元中，存储了两个BCD码表示的两位十进制数，高4位的BCD码表示十位，低4位的BCD码表示个位。比如，00010100b表示14
 
+BCD码值=十进制数码值，则BCD码值+30H=十进制数对应的ASCII码
+
 编程：在屏幕中间显示当前的月份
 
 [源代码](https://github.com/kennedy-han/myAsmCode/blob/master/chapter14_port/p14-1.asm)
