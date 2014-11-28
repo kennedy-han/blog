@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mac词典"
-description: "mac dictionary 单词 复数"
+description: "mac dictionary 词典 单词 复数"
 category: mac
 tags: [Mac]
 ---
