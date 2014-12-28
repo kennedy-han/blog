@@ -31,9 +31,13 @@ tags: [embedded]
    set serverip 10.0.0.100 //设置开发板将要连接的server ip
     ```
     
+* 保存：`save`命令
+   
 * 之后在开发板上ping server ip （注意：不可在PC机上ping开发板，因为u-boot不回复）
 
 ###使用tftp下载程序到u-boot
+* u-boot菜单选择烧写到NAND
+
 * 在tftp程序中制定current Directory为基准
 
 * 开发板上 `tftp 3000000 lcd.bin`
@@ -46,3 +50,9 @@ tags: [embedded]
 * 使用`nand write 30000000 bootloader`将地址30000000内容写入bootloader分区
 
 * 关电，切换Nand启动，再上电即可看到效果
+
+###u-boot操作
+* `q`退出菜单（退出菜单可使用print等命令）
+
+* `menu`重新进入菜单
+
