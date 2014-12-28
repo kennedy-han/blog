@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "烧写裸板程序"
-description: "vim plugin"
+description: "embedded"
 category: embedded
 tags: [embedded]
 ---
