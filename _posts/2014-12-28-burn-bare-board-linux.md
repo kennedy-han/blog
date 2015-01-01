@@ -40,7 +40,7 @@ set window 5
 #####Sorry, you must SET LINE or SET HOST first
 执行 > chmod 777 /dev/ttyS0
 
-###使用dnw和u-boot烧写
+###使用dnw和u-boot烧写（usb下载）
 启动u-boot，按空格进入菜单，linux会识别到新的USB设备
 
 ```
@@ -59,4 +59,4 @@ u-boot选择烧写到NAND，之后处于等待状态
 ```
 dnw 默认烧写到0x30000000位置
 
-之后擦除、写入、切换NAND启动
+切换NAND启动
