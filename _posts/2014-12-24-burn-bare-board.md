@@ -51,6 +51,21 @@ tags: [embedded]
 
 * 关电，切换Nand启动，再上电即可看到效果
 
+###烧写到NAND测试程序
+Nor启动进入u-boot后，退出菜单
+
+使用tftp下载
+
+tftp 30000000 lec_on.bin
+
+擦除Nand
+
+nand erase bootloader
+
+nand write 30000000 bootloader
+
+之后关电，切换Nand启动，上电，观察效果
+
 ###u-boot操作
 * `q`退出菜单（退出菜单可使用print等命令）
 
