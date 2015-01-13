@@ -168,7 +168,7 @@ ifconfig eth0 down
 ifconfig eth0 up
 
 ------
-C编译步骤：
+####C编译步骤：
 
 1.预处理
 
@@ -177,3 +177,13 @@ C编译步骤：
 3.汇编     .s -> .o
 
 4.链接     多个.o合并成一个可执行文件
+
+------
+###Troubleshooting:
+make编译成功，但无法看到效果
+
+检查Makefile中arm-linux-ld -Ttext 0x0000000 crt0.o leds.o -o leds_elf
+
+先连接crt0.o (crt0.S编译后文件) 用于引导main函数
+
+再连接leds.o (leds.c编译后文件)
