@@ -40,3 +40,5 @@ cmd + alt + L 格式化代码
 F7步入
 F8步过
 
+###Search
+advanced search 高级搜索  ctr+shift+S
