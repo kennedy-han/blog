@@ -8,6 +8,13 @@ tags: [embedded]
 {% include JB/setup %}
 
 ###制作、烧写跟文件系统
+
+mkyaffs2image从tools工具文件夹取得，放到/bin下并且给执行权限
+
+```
+chmod +x /bin/mkyaffs2image
+```
+
 ```
 mkdir tmp
 cp fs_mini_mdev.tar.bz2 tmp
