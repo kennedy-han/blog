@@ -35,6 +35,29 @@ tags: [embedded]
    
 * 之后在开发板上ping server ip （注意：不可在PC机上ping开发板，因为u-boot不回复）
 
+###裸板烧写4种方法
+1. 并口：使用并口工具烧写：接线，使用oflash烧写，重新上电观察效果
+
+2. 使用openJTAG烧写：接线，使用oflash烧写，烧写后会自动复位开发板
+
+3. JLINK只能烧写NOR Flash，烧好u-boot.bin，使用NOR启动
+
+4. 使用Nor Flash上的u-boot烧写
+    * 使用菜单通过USB下载烧写(接好USB下载线)
+    * 使用TFTP下载烧写(接好网线)
+        * 在tftp程序中制定current Directory为基准
+        
+        * 开发板上 `tftp 3000000 lcd.bin`
+            * `help tftp`查看使用规则
+        
+        * `mtd`查看分区情况
+        
+        * 使用`nand erase bootloader` 擦除bootloader分区
+        
+        * 使用`nand write 30000000 bootloader`将地址30000000内容写入bootloader分区
+        
+        * 关电，切换Nand启动，再上电即可看到效果
+
 ###使用tftp下载程序到u-boot
 * u-boot菜单选择烧写到NAND
 
